@@ -12,6 +12,10 @@ class AppState {
   resetTimer() {
     this.timer = 0;
   }
+
+  add100(){
+    this.timer += 100;
+  }
 }
 
 export default AppState;

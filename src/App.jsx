@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
+import  Button  from './button/button'
 import DevTools from 'mobx-react-devtools';
 
 @observer
@@ -8,9 +9,13 @@ class App extends Component {
     return (
       <div>
         <h1>Welcome</h1>
-        <button onClick={this.onReset}>
-          Seconds passed since app started: {this.props.appState.timer}
-        </button>
+          <h2>{this.props.appState.timer}</h2>
+          <Button label="Reset Timer" handleClick={this.onReset} >
+          </Button>
+          <br/> <br/>
+          <Button label="Add 100" handleClick={this.onAdd100} >
+          </Button>
+
         <DevTools />
       </div>
     );
@@ -19,6 +24,11 @@ class App extends Component {
   onReset = () => {
     this.props.appState.resetTimer();
   }
+
+  onAdd100 = () => {
+      this.props.appState.add100();
+  }
+
 }
 
 export default App;
